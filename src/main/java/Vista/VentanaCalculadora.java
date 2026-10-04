@@ -188,6 +188,11 @@ public class VentanaCalculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogaritmoActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+
+       if (tipoOperacion == null || tipoOperacion.isEmpty()) {
+    txtResultado.setText("Seleccione una operación");
+    return;
+    }
         try {
 
     double numero1 = Double.parseDouble(txtNumero1.getText());
