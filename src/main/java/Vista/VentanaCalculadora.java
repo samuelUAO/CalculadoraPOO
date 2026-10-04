@@ -203,6 +203,10 @@ public class VentanaCalculadora extends javax.swing.JFrame {
     txtResultado.setText("Seleccione una operación");
     return;
     }
+       if (txtNumero1.getText().trim().isEmpty()) {
+    txtResultado.setText("Ingrese el primer número");
+    return;
+    }
         try {
 
     double numero1 = Double.parseDouble(txtNumero1.getText());
@@ -213,7 +217,11 @@ public class VentanaCalculadora extends javax.swing.JFrame {
             || tipoOperacion.equals("resta")
             || tipoOperacion.equals("multiplicacion")
             || tipoOperacion.equals("division")) {
-
+        
+        if (txtNumero2.getText().trim().isEmpty()) {
+            txtResultado.setText("Ingrese el segundo número");
+            return;
+        }
         double numero2 = Double.parseDouble(txtNumero2.getText());
 
         resultado = controlador.realizarOperacion(
