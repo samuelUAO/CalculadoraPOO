@@ -44,13 +44,12 @@ public class VentanaCalculadora extends javax.swing.JFrame {
         btnRaizCubica = new javax.swing.JButton();
         btnLogaritmo = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtNumero1.setText("Numero 1");
         txtNumero1.addActionListener(this::txtNumero1ActionPerformed);
 
-        txtNumero2.setText("Numero 2");
         txtNumero2.addActionListener(this::txtNumero2ActionPerformed);
 
         txtResultado.setText("Resultado");
@@ -79,6 +78,9 @@ public class VentanaCalculadora extends javax.swing.JFrame {
         btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(this::btnCalcularActionPerformed);
 
+        btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(this::btnBorrarActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,10 +88,6 @@ public class VentanaCalculadora extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNumero2)
-                        .addContainerGap())
-                    .addComponent(txtNumero1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -112,12 +110,22 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                                         .addComponent(btnRaizCubica, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(31, 31, 31)))
                                 .addComponent(btnLogaritmo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnMultiplicacion)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDivision)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnMultiplicacion)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnDivision))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(97, 97, 97)
+                                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(8, 8, 8)))
-                        .addGap(17, 17, 17))))
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNumero1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNumero2))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +148,9 @@ public class VentanaCalculadora extends javax.swing.JFrame {
                             .addComponent(btnRaizCuadrada, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(btnLogaritmo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLogaritmo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -236,6 +246,15 @@ public class VentanaCalculadora extends javax.swing.JFrame {
 }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        txtNumero1.setText("");
+        txtNumero2.setText("");
+        txtResultado.setText("");
+
+        tipoOperacion = null;
+        
+    }//GEN-LAST:event_btnBorrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -262,6 +281,7 @@ public class VentanaCalculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnDivision;
     private javax.swing.JButton btnLogaritmo;
